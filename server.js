@@ -12,6 +12,9 @@ await client.connect();
 console.log("mongodb connected")
 return client
 }
+app.get('/',(req,res)=>{
+    res.send("hello contact")
+})
 
 app.post('/contact',async (req,res)=>{
     try{
