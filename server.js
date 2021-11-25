@@ -14,10 +14,10 @@ async function createconnection() {
   console.log("mongodb connected");
   return client;
 }
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
   res.send("hello contact");
 });
-
+*/
 app.post('/contact', async (req, res) => {
   try {
     const client = await createconnection();
@@ -56,7 +56,7 @@ app.put("/contact/:id", async (req, res) => {
       .collection("contacts")
       .updateOne({ id: id }, { $set: req.body });
 
-    res.send(contact);
+      res.send(contact);
   } catch (err) {
     console.log(err);
     res.send(err);
