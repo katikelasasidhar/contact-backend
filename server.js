@@ -7,6 +7,7 @@ const { MongoClient } = require("mongodb");
 const PORT = process.env.PORT || 5000;
 const MONGO_URL = process.env.MONGODB_URL;
 
+app.use(cors({origin:"*"}));
 
 async function createconnection() {
   const client = new MongoClient(MONGO_URL);
