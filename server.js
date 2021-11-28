@@ -1,13 +1,19 @@
 const express = require("express");
 const app = express();
-app.use(express.json());
+const cors=require("cors")
 const dotenv = require("dotenv");
+
 dotenv.config({ path: "./.env" });
+
+
 const { MongoClient } = require("mongodb");
 const PORT = process.env.PORT || 5000;
 const MONGO_URL = process.env.MONGODB_URL;
 
 app.use(cors({origin:"*"}));
+app.use(express.json());
+
+
 
 async function createconnection() {
   const client = new MongoClient(MONGO_URL);
